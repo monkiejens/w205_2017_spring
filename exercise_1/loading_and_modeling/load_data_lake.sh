@@ -1,4 +1,6 @@
-ave my current directory
+#!/bin/bash
+
+#save my current directory
 MY_CWD=$(pwd)
 
 #create directories (staging and exercise_1)

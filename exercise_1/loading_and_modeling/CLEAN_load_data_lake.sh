@@ -8,15 +8,6 @@ rm ~/staging/exercise_1/*
 rmdir ~/staging/exercise_1
 rmdir ~/staging
 
-
-
-
-
-
-
-
-
-
 #remove files into hdfs
 hdfs dfs -rm /user/w205/hospital_compare/hospitals/hospitals.csv
 hdfs dfs -rm /user/w205/hospital_compare/effective_care/effective_care.csv
