@@ -153,7 +153,7 @@ CREATE EXTERNAL TABLE surveys_responses
   communication_with_nurses_improvement_points string,
   communication_with_nurses_dimension_score string,
   communication_with_doctors_floor string,
-  communication_with_doctors_achievement_threshold string;
+  communication_with_doctors_achievement_threshold string,
   communication_with_doctors_benchmark string,
   communication_with_doctors_baseline_rate string,
   communication_with_doctors_performance_rate string,
