@@ -43,9 +43,9 @@ LOCATION '/user/w205/hospital_compare/hospitals'
 
 
 
-DROP TABLE Effective_Care;
+DROP TABLE effective_care;
 
-CREATE EXTERNAL TABLE Effective_Care
+CREATE EXTERNAL TABLE effective_care
 (
   provider_id string,
   hospital_name string,
@@ -75,9 +75,9 @@ LOCATION '/user/w205/hospital_compare/effective_care'
 
 
 
-DROP TABLE Readmissions;
+DROP TABLE readmissions;
 
-CREATE EXTERNAL TABLE Readmissions
+CREATE EXTERNAL TABLE readmissions
 (
   provider_id string,
   hospital_name string,
@@ -109,9 +109,10 @@ LOCATION '/user/w205/hospital_compare/readmissions'
 ;
 
 
-DROP TABLE Measures;
 
-CREATE EXTERNAL TABLE Measures
+DROP TABLE measures;
+
+CREATE EXTERNAL TABLE measures
 (
   measure_name string,
   measure_ID string,
@@ -130,9 +131,11 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/Measures'
 ;
 
-DROP TABLE Surveys_Responses;
 
-CREATE EXTERNAL TABLE Surveys_Responses
+
+DROP TABLE surveys_responses;
+
+CREATE EXTERNAL TABLE surveys_responses
 (
   provider_id string,
   hospital_name string,
@@ -152,7 +155,7 @@ CREATE EXTERNAL TABLE Surveys_Responses
   communication_with_doctors_floor string,
   communication_with_doctors_achievement_threshold string;
   communication_with_doctors_benchmark string,
-  communication_with_doctors_baseline_rate string;
+  communication_with_doctors_baseline_rate string,
   communication_with_doctors_performance_rate string,
   communication_with_doctors_achievement_points string,
   communication_with_doctors_improvement_points string,
