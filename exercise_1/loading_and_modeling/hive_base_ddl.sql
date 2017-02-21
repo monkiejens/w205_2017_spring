@@ -41,34 +41,34 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare'
 ;
 
-DROP TABLE Effective_Care;
 
-CREATE EXTERNAL TABLE Effective_Care
-(
-  provider_id string,
-  hospital_name string,
-  address string,
-  city string,
-  state string,
-  zip_code string,
-  county_name string,
-  phone_number string,
-  condition string,
-  measure_ID string,
-  measure_name string,
-  score string,
-  footnote string,
-  measure_start_date string,
-  measure_end_date string
-)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-WITH SERDEPROPERTIES (
-  "seperatorChar"=',',
-  "quoteChar"='"',
-  "escapeChar"='\\'
-)
-STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare'
-;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
