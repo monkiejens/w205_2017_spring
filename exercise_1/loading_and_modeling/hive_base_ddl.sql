@@ -4,7 +4,7 @@ CREATE EXTERNAL TABLE hospitals
 (
   provider_id string,
   hospital_name string, 
-  address varchar,
+  address varchar(500),
   city string,
   state string,
   zip_code string,
@@ -49,7 +49,7 @@ CREATE EXTERNAL TABLE Effective_Care
 (
   provider_id string,
   hospital_name string,
-  address varchar,
+  address varchar(500),
   city string,
   state string,
   zip_code string,
@@ -81,7 +81,7 @@ CREATE EXTERNAL TABLE Readmissions
 (
   provider_id string,
   hospital_name string,
-  address varchar,
+  address varchar(500),
   city string,
   state string,
   zip_code string,
@@ -136,7 +136,7 @@ CREATE EXTERNAL TABLE Surveys_Responses
 (
   provider_id string,
   hospital_name string,
-  address varchar,
+  address varchar(500),
   city string,
   state string,
   zip_code string,
