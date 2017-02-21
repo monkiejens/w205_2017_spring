@@ -1,4 +1,4 @@
-DROP TABLE hospitals
+DROP TABLE hospitals;
 
 CREATE EXTERNAL TABLE hospitals
 (
@@ -217,7 +217,6 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/surveys_responses'
 ;
-
 
 
 
