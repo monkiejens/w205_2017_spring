@@ -1,6 +1,6 @@
-DROP TABLE survey_results; 
+DROP TABLE survey; 
 
-CREATE TABLE survey_results
+CREATE TABLE survey
 
 AS SELECT
   provider_id,
@@ -285,16 +285,16 @@ AS SELECT
   WHEN overall_rating_improvement_points LIKE "10%" THEN 10
   END AS overall_improvement,
   CASE WHEN overall_rating_improvement_points LIKE "0%" THEN 0
-  WHEN overall_rating_rating_dimension_score LIKE "1 %" THEN 1
-  WHEN overall_rating_rating_dimension_score LIKE "2%" THEN 2
-  WHEN overall_rating_rating_dimension_score LIKE "3%" THEN 3
-  WHEN overall_rating_rating_dimension_score LIKE "4%" THEN 4
-  WHEN overall_rating_rating_dimension_score LIKE "5%" THEN 5
-  WHEN overall_rating_rating_dimension_score LIKE "6%" THEN 6
-  WHEN overall_rating_rating_dimension_score LIKE "7%" THEN 7
-  WHEN overall_rating_rating_dimension_score LIKE "8%" THEN 8
-  WHEN overall_rating_rating_dimension_score LIKE "9%" THEN 9
-  WHEN overall_rating_rating_dimension_score LIKE "10%" THEN 10
-  END AS overall_dimension,
+  WHEN overall_rating_dimension_score LIKE "1 %" THEN 1
+  WHEN overall_rating_dimension_score LIKE "2%" THEN 2
+  WHEN overall_rating_dimension_score LIKE "3%" THEN 3
+  WHEN overall_rating_dimension_score LIKE "4%" THEN 4
+  WHEN overall_rating_dimension_score LIKE "5%" THEN 5
+  WHEN overall_rating_dimension_score LIKE "6%" THEN 6
+  WHEN overall_rating_dimension_score LIKE "7%" THEN 7
+  WHEN overall_rating_dimension_score LIKE "8%" THEN 8
+  WHEN overall_rating_dimension_score LIKE "9%" THEN 9
+  WHEN overall_rating_dimension_score LIKE "10%" THEN 10
+  END AS overall_dimension
 FROM surveys_responses
 ;
