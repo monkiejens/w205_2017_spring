@@ -1,4 +1,4 @@
-DROP TABLE scoring;
+DROP TABLE hospital_scoring;
 
 CREATE TABLE scoring
 
