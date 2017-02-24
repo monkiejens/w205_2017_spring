@@ -1,6 +1,6 @@
-DROP TABLE hospital_scoring;
+DROP TABLE hospital_effectiveness;
 
-CREATE TABLE scoring
+CREATE TABLE hospital_effectiveness
 
 AS SELECT
   provider_id,
