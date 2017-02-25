@@ -26,6 +26,7 @@ AS SELECT
   r.hospital_name,
   r.state,
   ROUND(AVG(p.score + r.hospital_avg_score), 0) AS total_hospital_avg,
+  ROUND(STDDEV_POP(total_hospital_avg),3) AS total_hospital_std,
   SUM(p.score + r.hospital_total_score) AS total_hospital_score
 FROM hospital_rating r
 JOIN procedures_readmission p
