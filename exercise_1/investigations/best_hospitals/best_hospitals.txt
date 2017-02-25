@@ -1,0 +1,49 @@
+Question1:  What hospitals are models of high-quality care?  That is, which
+hospitals have the most consistently high scores for a variety of procedures?
+
+Answer:
+The question defines “high-quality care” as having consistently high
+scores for different procedures.  However, it should be noted that the
+criteria included in the hospitals.csv file (overall rating, comparison with
+national mortality/safety/readmission etc) should also be included in the
+definition because it gives a more complete picture of the quality of care a
+hospital delivers.
+
+Therefore, I took the rating and comparison scores in from the my_hospital
+table and created hospital_rating table.  The hospital_rating table joined
+with hospital_effectivenss to include the scoring on the hospitals’ timely
+care (or lack thereof!).  This table also calculated the mean of all
+comparison scores (mortality, safety, patient, timeliness) and aggregate sum
+of all scores.  Finally, the table filtered out any hospitals with an overall
+score of 1 since they are lower quality.
+
+In order to incorporate the scoring for procedure quality, the information
+from procedures_readmission was joined with procedures_readmission on
+hospital_name and provider_id to create the final table best_hospitals.  This
+table added the procedure scores to the aggregate sum from hospital_rating
+table and also calculated the average score and standard deviation, as well as
+the total score.  The output shows the top 10 highest quality hospitals with
+their provider_id, hospital_name, state (I added this in because I was
+curious), the average score, standard deviation, and total scores.
+
+050060	COMMUNITY REGIONAL MEDICAL CENTER		CA	205.0	6.014
+37649
+450029	LAREDO MEDICAL CENTER				TX	201.0	5.535
+29105
+330182	ST FRANCIS HOSPITAL, ROSLYN			NY	188.0	5.364
+32218
+050492	CLOVIS COMMUNITY MEDICAL CENTER			CA	181.0	4.418
+26181
+110079	GRADY MEMORIAL HOSPITAL				GA	181.0	4.621
+23772
+140068	ROSELAND COMMUNITY HOSPITAL			IL	172.0	4.106
+12639
+050327	LOMA LINDA UNIVERSITY MEDICAL CENTER		CA	170.0	5.357
+30998
+110064	MIDTOWN MEDICAL CENTER				GA	165.0	3.333
+23218
+010087	UNIVERSITY OF SOUTH ALABAMA MEDICAL CENTER	AL	162.0	4.655
+11454
+450289	HARRIS HEALTH SYSTEM				TX	160.0	4.029
+24163
+Time taken: 0.107 seconds, Fetched: 10 row(s)
