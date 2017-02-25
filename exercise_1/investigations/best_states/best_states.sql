@@ -3,14 +3,15 @@ DROP TABLE best_states;
 CREATE TABLE best_states
 
 AS SELECT
-  r.state,
-  ROUND(SUM(r.hospital_avg_score + e.score), 0) AS total_state_score,
-  ROUND(AVG(r.hospital_avg_score + e.score), 0) AS avg_state_score
+  m.state,
+  ROUND(AVG(m.mortality_comparison + m.safety_comparison + m.patient_comparison + m.timeliness_comparison + e.score), 3) AS avg_state_score,
+  ROUND(SUM(m.mortality_comparison + m.safety_comparison + m.patient_comparison + m.timeliness_comparison + e.score), 0) AS total_state_score  
 
-FROM hospital_rating r
+FROM my_hospitals m
 JOIN hospital_effectiveness e
-GROUP BY r.state
-ORDER BY total_state_score DESC
+ON (m.state=e.state)
+GROUP BY m.state
+ORDER BY avg_state_score DESC
 ;
 
 

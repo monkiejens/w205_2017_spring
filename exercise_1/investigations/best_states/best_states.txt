@@ -1,0 +1,32 @@
+QUESTION 2:  What states are models of high-quality care?
+
+ANSWER:
+The best_states table was similar to the initial table from Q1 (hospital
+rating).  However, the scores were grouped by state rather than by hospital,
+and again the average and total sum scores are presented.  
+
+One consideration was in adding the procedures scores, as was done for Q1.
+However, when procedure scoring was added, the results were changed with a
+higher ranking of rural states.  These states also had a much lower number of
+procedures done, which could greatly increase or decrease their ranking
+overall, depending on how few procedures they did and their scores.  Unlike
+Q1, I chose not to filter out states which had lower number of procedures
+because that would be a biased representation of quality of care if those
+states were completely removed.  Therefore, I elected not to include the
+procedure scores, and to only focus on the timely effective care and the
+overall national ratings.  The output shows the states in descending order of
+average scoring and displays total scores.
+
+
+
+DC	114.051		78239
+DE	98.782		51564
+NY	98.767		28573930
+CA	98.746		82337826
+NH	98.537		320245
+RI	96.347		144520
+MA	95.242		4119047
+NV	94.756		615915
+NJ	93.865		5124562
+CT	93.36		985606
+Time taken: 0.105 seconds, Fetched: 10 row(s)
