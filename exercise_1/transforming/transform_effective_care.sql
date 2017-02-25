@@ -6,7 +6,8 @@ AS SELECT
   provider_id,
   hospital_name,
   state,
-  measure_id
+  measure_id,
+  cast(score as int)
 FROM effective_care
 ;
-  
+

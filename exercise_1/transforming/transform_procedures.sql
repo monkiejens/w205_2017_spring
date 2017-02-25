@@ -1,14 +1,15 @@
-DROP TABLE procedures;
+DROP TABLE procedures_readmission;
 
-CREATE TABLE procedures
+CREATE TABLE procedures_readmission
+
 AS SELECT
   provider_id,
   hospital_name,
   state,
   measure_id,
-  denominator,
-  score,
-  lower_estimate,
-  higher_estimate
+  CAST(denominator AS int),
+  CAST(score AS int),
+  CAST(lower_estimate AS int),
+  CAST(higher_estimate AS int)
 FROM readmissions
 ;
