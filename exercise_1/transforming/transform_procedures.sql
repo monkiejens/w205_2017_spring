@@ -5,11 +5,9 @@ CREATE TABLE procedures_readmission
 AS SELECT
   provider_id,
   hospital_name,
-  state,
   measure_id,
+  measure_name,
   CAST(denominator AS int),
-  CAST(score AS int),
-  CAST(lower_estimate AS int),
-  CAST(higher_estimate AS int)
+  CAST(score AS int)
 FROM readmissions
 ;
