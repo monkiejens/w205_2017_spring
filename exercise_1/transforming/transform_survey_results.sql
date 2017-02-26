@@ -1,11 +1,10 @@
-DROP TABLE survey; 
+DROP TABLE survey_scores; 
 
-CREATE TABLE survey
+CREATE TABLE survey_scores
 
 AS SELECT
   provider_id,
   hospital_name,
-  state,
   CASE WHEN communication_with_nurses_achievement_points LIKE "0%" THEN 0
   WHEN communication_with_nurses_achievement_points LIKE "1 %" THEN 1
   WHEN communication_with_nurses_achievement_points LIKE "2%" THEN 2
