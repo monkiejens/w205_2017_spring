@@ -1,0 +1,40 @@
+QUESTION 4:  Are average scores for hospital quality or procedural variability
+correlated with patient survey responses?
+
+ANSWER:
+For the survey ratings, the achievement, improvement and dimension scores were
+included for groups of nurses, doctors, staff, pain assessment, communication,
+cleanliness and overall.  The baseline and benchmark rates were not included
+given that they are comparison measures and therefore should not be part of
+the scoring assessment.  The scores were averaged per group in the survey
+table, then averaged into a overall score per hospital in the survey_avg
+table.  Next, the hospital_proc_var table was created to obtain the procedure
+variability per hospital so that I could later join the procedures to the
+survey results.  Unfortunately, I could not use the procedure scores from Q3
+as they were grouped by procedure rather than hospital.  It may be faster to
+compute had I restructured the schema to have the procedure as its own entity
+and then the hospital- and measure- tables attached to the procedures.
+
+To set up for the correlation calculations, two tables were made by joining
+the hospital scores and survey scores, and the procedure variability and
+survey scores, respectively.  
+
+The correlation between the average survey scores and hospital average scores
+was:
+-0.11840958169525921
+
+The correlation between the average survey scores and procedure variability
+was:
+-0.47476313612180854
+
+There seems to be very weak negative correlation between how a hospital scores
+with patient surveys and with patient metrics.  On the other hand, there is a
+moderately negative correlation between survey scores and procedure
+variability.  This result is intruiging given the findings of a recent article
+from the JAMA entitled  "The Cost of Satisfaction A National Study of
+Patient Satisfaction, Health Care Utilization, Expenditures, and
+Mortality," where they noted higher patient satisfaction associated with
+higher inpatient stays (i.e. readmissions) and mortality outcomes (i.e.
+procedure outcomes).  This also makes sense in that the higher the procedure
+variability, meaning that the less consistent the procedure outcomes, the more
+dissatisfied the patients would be with their survey scores.
