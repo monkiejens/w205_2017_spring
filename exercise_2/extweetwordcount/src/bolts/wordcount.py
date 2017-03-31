@@ -19,22 +19,11 @@ class WordCounter(Bolt):
 	
 	# Using psycopg-sample.py structure
 	# Connect to postgres database
-	conn = psycopg2.connect(database = "postgres", user="postgres", password = "pass", host = "localhost", port = "5432")
-	conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-           
-	# Create database tcount
-        try:
-                conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-                cur = conn.cursor()
-                cur.execute("CREATE DATABASE tcount")
-                cur.close()
-                conn.close()
-        except:
-                print("Could not create tcount") 
-
     def process(self, tup):
-        
-	conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
+
+        conn = psycopg2.connect(database = "tcount", user="postgres", password = "pass", host = "localhost", port = "5432")
+        conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+                
 	#create cursor
 	cur = conn.cursor()
 	conn.commit()
@@ -45,12 +34,18 @@ class WordCounter(Bolt):
         self.counts[word] += 1
         self.emit([word, self.counts[word]])
 	
-	# check the word, if exists, add 1 to value / if not, initiate word
-        if self.counts[word] == 0:
-		cur.execute("INSERT INTO tweetwordcount (word, count) VALUES (word, self.counts[word])")
+	# check the word from table and get counts
+	cur.execute("SELECT word, count FROM tweetwordcount WHERE word=%s", (word,))
+	record = cur.fetchone()
+
+	# if not in database, then insert word/count, otherwise update word/count
+        if record == None:
+		cur.execute("INSERT INTO tweetwordcount (word, count) VALUES (%s, %s)", (word, self.counts[word]))
+		conn.commit()
+		
 	else:
 		cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[word], word))
-	conn.commit()
+		conn.commit()
 	
 
 	# Log the count - just to see the topology running
